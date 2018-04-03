@@ -15,6 +15,15 @@ public class Client {
 	private String telephone;
 	private String email;
 	
+	
+	public Client() {
+	}
+
+	public Client(int id, String nom) {
+		this.id = id;
+		this.nom = nom;
+	}
+
 	public Client(int id, String nom, String prenom, String adresse, String codePostal, String ville, String telephone,
 			String email) {
 		this.id = id;
@@ -26,6 +35,8 @@ public class Client {
 		this.telephone = telephone;
 		this.email = email;
 	}
+	
+	
 
 	public int getId() {
 		return id;
