@@ -1,0 +1,20 @@
+package DAO;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public class ImplStudentDAO  extends AbstractDaoJDdbc implements StudentDAO {
+
+	@Override
+	public String getStudentGrade(String snn, String courseId) {
+		// TODO va fouiller dans la data base
+		try {
+			Connection cnx = connectJDBC();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			
+		}
+		return null;
+	}
+}

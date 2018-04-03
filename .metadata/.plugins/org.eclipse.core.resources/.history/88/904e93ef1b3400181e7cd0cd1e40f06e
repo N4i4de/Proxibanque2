@@ -1,0 +1,15 @@
+package DAO;
+
+import java.sql.Connection;
+
+public class ImplStudentDAO implements StudentDAO {
+
+	@Override
+	public String getStudentGrade(String snn, String courseId) {
+		// TODO va fouiller dans la data base 
+		AbstractDaoJDdbc dao = new AbstractDaoJDdbc();
+		Connection cnx = AbstractDaoJDdbc.
+		return null;
+	}
+
+}

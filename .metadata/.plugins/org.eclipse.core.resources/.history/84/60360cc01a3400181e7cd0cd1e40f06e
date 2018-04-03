@@ -1,0 +1,11 @@
+package DAO;
+
+public class ImplStudentDAO implements StudentDAO {
+
+	@Override
+	public String getStudentGrade(String snn, String courseId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

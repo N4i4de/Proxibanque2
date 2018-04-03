@@ -15,9 +15,18 @@ public class Client {
 	private String telephone;
 	private String email;
 	
-	public Client(int id, String nom, String prenom, String adresse, String codePostal, String ville, String telephone,
+	
+	public Client() {
+	}
+
+	public Client(int idclient, String nom) {
+		this.idclient = idclient;
+		this.nom = nom;
+	}
+
+	public Client(int idclient, String nom, String prenom, String adresse, String codePostal, String ville, String telephone,
 			String email) {
-		this.idclient = id;
+		this.idclient = idclient;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse = adresse;
@@ -26,13 +35,15 @@ public class Client {
 		this.telephone = telephone;
 		this.email = email;
 	}
+	
+	
 
 	public int getId() {
 		return idclient;
 	}
 
-	public void setId(int id) {
-		this.idclient = id;
+	public void setId(int idclient) {
+		this.idclient = idclient;
 	}
 
 	public String getNom() {

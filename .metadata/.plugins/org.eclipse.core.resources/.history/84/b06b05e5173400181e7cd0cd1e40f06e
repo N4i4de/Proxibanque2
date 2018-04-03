@@ -1,0 +1,10 @@
+package DAO;
+
+import java.sql.Connection;
+
+public abstract class AbstractDaoJDdbc {
+	public Connection connectJDBC(){
+		
+	}
+
+}

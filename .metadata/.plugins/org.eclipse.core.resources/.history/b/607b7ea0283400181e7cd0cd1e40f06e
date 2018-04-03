@@ -1,0 +1,22 @@
+package test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.Before;
+import org.junit.jupiter.api.Test;
+
+class teststudentDAO {
+
+	@Test
+	
+	@Before
+	String ssn = "ssn";
+	String courseid="1";
+	
+	
+	void testGetStudentGrade() {
+
+		fail("Not yet implemented");
+	}
+
+}

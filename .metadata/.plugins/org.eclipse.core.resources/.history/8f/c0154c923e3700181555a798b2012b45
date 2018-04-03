@@ -1,0 +1,21 @@
+package model;
+
+
+
+/**
+ * classe compte
+ *l'attribut typePE (pour Particulier ou Entreprise) indique si le compte est entreprise ou particulier
+ *l'attribut typeCE (pour courant ou epargne) indique si le compte est courant ou epargne
+ * @author Sandrine
+ *
+ */
+public class Compte {
+	private int numeroCompte;
+	private double solde;
+	private String typePE;
+	private String typeCE;
+	public static final String particulier ="PARTICULIER";
+	public static final String entreprise = "ENTREPRISE";
+	
+
+}

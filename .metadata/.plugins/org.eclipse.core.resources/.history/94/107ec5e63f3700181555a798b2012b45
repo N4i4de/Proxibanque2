@@ -1,0 +1,10 @@
+package service;
+
+/**
+ * interface pour la gestion client
+ * @author Sandrine
+ *
+ */
+public interface InterfaceGestionClient {
+
+}

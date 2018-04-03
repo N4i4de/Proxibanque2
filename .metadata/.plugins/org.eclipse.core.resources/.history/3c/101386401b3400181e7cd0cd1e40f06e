@@ -1,0 +1,12 @@
+package DAO;
+
+public class ImplStudentDAO implements StudentDAO {
+
+	@Override
+	public String getStudentGrade(String snn, String courseId) {
+		// TODO va fouiller dans la data base 
+		Connection cnx = 
+		return null;
+	}
+
+}

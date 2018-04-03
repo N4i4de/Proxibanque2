@@ -1,0 +1,11 @@
+package org.formation.jsp;
+
+public class NumDeptMapper implements DeptNumService {
+
+	@Override
+	public String findDept(String deptNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

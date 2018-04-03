@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>entrer un numero de departement</title>
+</head>
+<body>
+<h1>Veuillez entrer un numéro de département</h1>
+
+<fieldset>
+<legend>Formulaire</legend>
+<form action="ShowDept" method="get">
+Numero de département : <input type="text" name="deptNum" placeholder="999">
+<input type="submit" 
+</form>
+</fieldset>
+
+</body>
+</html>
