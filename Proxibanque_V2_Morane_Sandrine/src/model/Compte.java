@@ -12,6 +12,15 @@ package model;
 public class Compte {
 	private int numeroCompte;
 	private double solde;
+	private String datecreation;
+	public String getDatecreation() {
+		return datecreation;
+	}
+
+	public void setDatecreation(String datecreation) {
+		this.datecreation = datecreation;
+	}
+
 	private String typePE;
 	private String typeCE;
 	public static final String particulier ="PARTICULIER";

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import model.Client;
@@ -123,26 +124,127 @@ public class DAOclient extends DaoJdbc implements InterfaceDAOClient {
     }
 
 	@Override
-	public List<Client> getAllclient() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public List<Client> getAllclient() {
+        Connection cnx = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        List<Client> clients = new ArrayList<>();
+        String nom = "";
+        String prenom = "";
+        String adresse = "";
+        String ville = "";
+        String telephone = "";
+        String codepostal = "";
+        String email = "";
+        int idclient;
+        Client client = new Client();
+        try {
+            cnx = seConnecter();
+            String s = "select * from client";
+            pstm = cnx.prepareStatement(s);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                idclient = rs.getInt("idclient");
+                nom = rs.getString("nom");
+                prenom = rs.getString("prenom");
+                adresse = rs.getString("adresse");
+                ville = rs.getString("ville");
+                telephone = rs.getString("telephone");
+                codepostal = rs.getString("codepostal");
+                email = rs.getString("email");
+
+                client = new Client(idclient, nom, prenom, adresse, codepostal, ville, telephone, email);
+                clients.add(client);
+            }
+
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            close(cnx, pstm, rs);
+        }
+        return clients;
+    }
+	@Override
+    public void deleteClient(int idclient) {
+        // TODO Auto-generated method stub
+            Connection cnx = null;
+            PreparedStatement pstm = null;
+            ResultSet rs = null;
+            try {
+                cnx = seConnecter();
+                String s = "delete * from client where idclient=?";
+                pstm = cnx.prepareStatement(s);
+                pstm.setInt(1, idclient);
+                rs = pstm.executeQuery();
+
+            } catch (ClassNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } finally {
+                close(cnx, pstm, rs);
+            }
+
+    }
 
 	@Override
-	public void deleteClient(int idclient) {
-		// TODO Auto-generated method stub
+    public void deleteCompte(int numerocompte) {
+        // TODO Auto-generated method stub
+        Connection cnx = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        try {
+            cnx = seConnecter();
+            String s = "delete * from compte where numerocompte=?";
+            pstm = cnx.prepareStatement(s);
+            pstm.setInt(1, numerocompte);
+            rs = pstm.executeQuery();
 
-	}
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            close(cnx, pstm, rs);
+        }
 
-	@Override
-	public void deleteCompte(int numeroCompte) {
-		// TODO Auto-generated method stub
+    }
+@Override
+    public void saveCompte(Compte compte) {
+        // TODO Auto-generated method stub
+        Connection cnx = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
 
-	}
+        try {
+            cnx = seConnecter();
+            String s = "insert into compte (numerocompte, solde, typepe, datecreation, typece) values ( ?, ?, ?, ?, ?)";
+            pstm = cnx.prepareStatement(s);
+            pstm.setInt(1, compte.getNumeroCompte());
+            pstm.setDouble(2, compte.getSolde());
+            pstm.setString(3, compte.getTypePE());
+            pstm.setString(4, compte.getDatecreation());
+            pstm.setString(5, compte.getTypeCE());
+            pstm.executeUpdate();
 
-	@Override
-	public void saveCompte(Compte compte) {
-		// TODO Auto-generated method stub
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            close(cnx, pstm, rs);
+        }
+
 
 	}
 
