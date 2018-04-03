@@ -6,7 +6,7 @@ package model;
  *
  */
 public class Client {
-	private int id;
+	private int idclient;
 	private String nom;
 	private String prenom;
 	private String adresse;
@@ -17,7 +17,7 @@ public class Client {
 	
 	public Client(int id, String nom, String prenom, String adresse, String codePostal, String ville, String telephone,
 			String email) {
-		this.id = id;
+		this.idclient = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse = adresse;
@@ -28,11 +28,11 @@ public class Client {
 	}
 
 	public int getId() {
-		return id;
+		return idclient;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.idclient = id;
 	}
 
 	public String getNom() {

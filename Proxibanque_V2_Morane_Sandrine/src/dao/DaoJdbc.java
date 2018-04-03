@@ -13,7 +13,7 @@ public abstract class DaoJdbc {
 	public Connection seConnecter() throws ClassNotFoundException, SQLException {
 		Connection cnx = null;
 		Class.forName("com.mysql.jdbc.Driver");
-		cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/formation", "root", "");
+		cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/proxibanque_morane_sandrine", "root", "");
 		return cnx;
 	}
 

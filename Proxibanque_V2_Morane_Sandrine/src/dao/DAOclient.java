@@ -1,31 +1,31 @@
 package dao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.mysql.jdbc.Connection;
-
 import model.Client;
 
-public class DAOclient implements InterfaceDAOClient {
+public class DAOclient extends DaoJdbc implements InterfaceDAOClient {
 
 
 	@Override
-	public Client getByidClient() {
+	public Client getByidClient(int idclient) {
 		Connection cnx = null;
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
-		String client = "";
+		String nom = "";
 		try {
 			cnx = seConnecter();
-			String s = "select * from client where idclient=?";
+			String s = "select nom from client where idclient=?";
 			pstm = cnx.prepareStatement(s);
-			pstm.setString(1, idclient);
+			pstm.setInt(1, idclient);
 			rs = pstm.executeQuery(s);
 			while (rs.next()) {
-				client = rs.getString(1);
+				nom = rs.getString(1);
+				System.out.println("lala"+ nom);
 			}
 
 		} catch (ClassNotFoundException e) {
@@ -37,12 +37,7 @@ public class DAOclient implements InterfaceDAOClient {
 		} finally {
 			close(cnx, pstm, rs);
 		}
-		return client;
-
-		
-		
-		
-		
+		return null;		
 	}
 
 	@Override
@@ -77,6 +72,24 @@ public class DAOclient implements InterfaceDAOClient {
 
 	@Override
 	public void saveClient(Client client) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void upDateClientByid(int id, Client clientModifie) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteClient(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteCompte(int numeroCompte) {
 		// TODO Auto-generated method stub
 		
 	}

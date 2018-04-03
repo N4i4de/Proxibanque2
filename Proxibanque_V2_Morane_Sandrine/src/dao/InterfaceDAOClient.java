@@ -18,7 +18,7 @@ public interface InterfaceDAOClient {
 
 	public void deleteCompte(int numeroCompte);
 
-	public void saveCompte(Compte compte);
+	//public void saveCompte(Compte compte);
 
 	public void upDateCompte(int numeroCompte);
 
