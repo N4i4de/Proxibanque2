@@ -21,7 +21,7 @@ public interface InterfaceDAOClient {
 
 	public void saveCompte(Compte compte);
 
-	public void upDateCompte(int numeroCompte);
+	public void upDateCompte(int numeroCompte,double nouveauSolde);
 	
 	public List<Client> getClientByConseiller(int idConseiller);
 

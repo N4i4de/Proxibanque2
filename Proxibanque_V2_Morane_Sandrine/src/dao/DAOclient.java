@@ -247,12 +247,33 @@ public class DAOclient extends DaoJdbc implements InterfaceDAOClient {
 
 
 	}
+@Override
+public void upDateCompte(int numeroCompte, double nouveauSolde) {
+    // TODO Auto-generated method stub
+    Connection cnx = null;
+    PreparedStatement pstm = null;
+    ResultSet rs = null;
+    double solde=0.0;
 
-	@Override
-	public void upDateCompte(int numeroCompte) {
-		// TODO Auto-generated method stub
+    try {
+        cnx = seConnecter();
+        String s = "update compte set solde=?  where numerocompte = ?";
+        pstm = cnx.prepareStatement(s);
+        pstm.setDouble(1, solde);
+        pstm.setInt(2, numeroCompte);
 
-	}
+        pstm.executeUpdate();
+
+    } catch (ClassNotFoundException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    } catch (SQLException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    } finally {
+        close(cnx, pstm, rs);
+    }
+}
 
 	@Override
 	public List<Client> getClientByConseiller(int idConseiller) {

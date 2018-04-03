@@ -36,7 +36,7 @@ public class GestionClient implements InterfaceGestionClient {
 	public void modifierCompte(Compte comptemodifie, int numerocompte) {
 		// TODO Auto-generated method stub
 		InterfaceDAOClient daoclient = new DAOclient();
-		daoclient.upDateCompte(numerocompte);
+		daoclient.upDateCompte(numerocompte, comptemodifie.getSolde());
 
 	}
 
