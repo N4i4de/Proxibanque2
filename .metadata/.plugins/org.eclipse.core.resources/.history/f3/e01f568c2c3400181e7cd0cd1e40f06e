@@ -1,0 +1,29 @@
+package test;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.Before;
+import org.junit.jupiter.api.Test;
+
+import DAO.ImplStudentDAO;
+import DAO.StudentDAO;
+import junit.framework.Assert;
+
+class teststudentDAO {
+
+	String ssn = "ssn";
+	String courseid="1";
+	StudentDAO dao = new ImplStudentDAO();
+	
+	@Before
+
+	@Test
+
+	void testGetStudentGrade() {
+		String noteattendue = dao.getStudentGrade(snn, courseid);
+		assertEquals("a", note);
+		fail("Not yet implemented");
+	}
+
+}

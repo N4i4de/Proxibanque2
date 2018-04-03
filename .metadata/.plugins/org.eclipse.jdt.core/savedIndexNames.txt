@@ -1,0 +1,25 @@
+INDEX VERSION 1.130+C:\Users\adminl\eclipse-workspace\Sandrine\.metadata\.plugins\org.eclipse.jdt.core
+3861941083.index
+3929743283.index
+723412080.index
+2971029529.index
+18655363.index
+3800943511.index
+2235247270.index
+4235507619.index
+2276555929.index
+2155005568.index
+3302004773.index
+3096745108.index
+3461917741.index
+3490775799.index
+558324051.index
+3248897487.index
+3549130445.index
+1344078357.index
+1024327283.index
+3758029775.index
+484617347.index
+3794464617.index
+3384924548.index
+1214967675.index

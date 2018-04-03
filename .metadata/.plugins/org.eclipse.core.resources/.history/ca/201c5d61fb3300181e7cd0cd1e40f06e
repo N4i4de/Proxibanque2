@@ -1,0 +1,78 @@
+package org.formation.jsp;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class ShowDept
+ */
+@WebServlet("/ShowDept")
+public class ShowDept extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
+	public DeptNumService deptNumMapper;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ShowDept() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Construire une requete pour faire le MVC vers les bonnes vues
+		HttpSession session = request.getSession();
+		System.out.println("la servlet est connectée");
+		
+		//recupération données et on retire les espaces
+		String numdept = request.getParameter("deptNum");
+		//instanciation des classes necessaires au test de présence dans la map
+		NumDeptMapper deptmapper = new NumDeptMapper();
+
+		
+		//test de la valeur de numdept (si null ou non)
+		if (numdept.equals(null)) {
+			numdept="";
+		}
+		numdept= numdept.trim();
+		if (numdept.equals("")) {
+			//renvoi vers la page missing-num
+			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/result/missing-num.jsp");
+			dispatcher.forward(request, response);	
+		} else {
+			if(deptmapper.findDept(numdept) != null) {
+				//traitement pour construire l'objet Deptpair la mettre dans la session
+				DeptPair paire = new DeptPair(numdept, deptmapper.findDept(numdept));
+				session.setAttribute("deptInfo1", arg1);
+			} else {
+				//renvoi vers la page unknown num
+				session.setAttribute("NumDept", numdept);
+				RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/result/unknown-num.jsp");
+				dispatcher.forward(request, response);	
+			}
+		}
+		
+		
+		
+	}
+
+}

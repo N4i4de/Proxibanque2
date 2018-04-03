@@ -1,0 +1,10 @@
+package model;
+
+public class Conseiller {
+	private String  nom;
+	private String login;
+	private String password;
+	private int idconseiller;
+	
+
+}

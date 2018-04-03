@@ -1,0 +1,8 @@
+package org.formation.jsp;
+
+public class DeptPair {
+	private String deptNum;
+	private String deptName;
+	
+
+}

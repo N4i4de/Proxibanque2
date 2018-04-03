@@ -1,0 +1,6 @@
+INDEX VERSION 1.4+C:\Users\adminl\eclipse-workspace\Sandrine\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3302004773.index
+3384924548.index
+4046959155.index
+2778281252.index
+2155005568.index
