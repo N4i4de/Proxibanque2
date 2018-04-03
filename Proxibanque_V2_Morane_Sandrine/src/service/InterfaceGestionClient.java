@@ -13,6 +13,7 @@ import model.Compte;
 public interface InterfaceGestionClient {
 	public void creerClient(Client client); 
 	public void modifierClient(Client clientmodifie, int idclient);
+	public Client afficherClient(int idclient);
 	public void creerCompte(Compte compte);
 	public void modifierCompte(Compte comptemodifie, int numerocompte);
 	public void supprimerCompte(int numerocompte);

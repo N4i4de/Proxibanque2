@@ -89,4 +89,10 @@ public class DAOclient extends DaoJdbc implements InterfaceDAOClient {
 
 	}
 
+	@Override
+	public List<Client> getClientByConseiller(int idConseiller) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

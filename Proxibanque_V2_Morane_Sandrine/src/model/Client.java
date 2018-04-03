@@ -1,5 +1,6 @@
 package model;
 
+import java.util.List;
 
 /**
  * @author Sandrine
@@ -15,7 +16,17 @@ public class Client {
 	private String telephone;
 	private String email;
 	
+	private List<Compte> listCompte;
 	
+	
+	public List<Compte> getListCompte() {
+		return listCompte;
+	}
+
+	public void setListCompte(List<Compte> listCompte) {
+		this.listCompte = listCompte;
+	}
+
 	public Client() {
 	}
 
@@ -38,7 +49,7 @@ public class Client {
 	
 	
 
-	public int getId() {
+	public int getIdclient() {
 		return idclient;
 	}
 
@@ -101,6 +112,14 @@ public class Client {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	@Override
+	public String toString() {
+		return "Client [idclient=" + idclient + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse
+				+ ", codePostal=" + codePostal + ", ville=" + ville + ", telephone=" + telephone + ", email=" + email
+				+ ", listCompte=" + listCompte + "]";
+	}
+
 
 	
 }
