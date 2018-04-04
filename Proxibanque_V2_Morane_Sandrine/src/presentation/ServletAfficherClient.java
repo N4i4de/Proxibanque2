@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import model.Client;
 import service.GestionClient;
 import service.InterfaceGestionClient;
 
 /**
+ * servlet intermediaire entre la liste de client et le formulaire de modification client
  * Servlet implementation class ServletAfficherClient
  */
 @WebServlet("/ServletAfficherClient")
@@ -33,8 +33,14 @@ public class ServletAfficherClient extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		InterfaceGestionClient gestionclient = new GestionClient();
+		int idclient=Integer.parseInt(request.getParameter("idclient"));
+		Client client = gestionclient.afficherClient(idclient);
+		HttpSession session = request.getSession();
+		session.setAttribute("clientChoisi", client);
+		RequestDispatcher dispatcher;
+		dispatcher=request.getRequestDispatcher("modificationClient.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**
@@ -46,9 +52,9 @@ public class ServletAfficherClient extends HttpServlet {
 		int idclient=Integer.parseInt(request.getParameter("idclient"));
 		Client client = gestionclient.afficherClient(idclient);
 		HttpSession session = request.getSession();
-		session.setAttribute("clientrecherche", client);
+		session.setAttribute("clientChoisi", client);
 		RequestDispatcher dispatcher;
-		dispatcher=request.getRequestDispatcher("Client.jsp");
+		dispatcher=request.getRequestDispatcher("modificationClient.jsp");
 		dispatcher.forward(request, response);
 	}
 

@@ -1,0 +1,22 @@
+@charset "ISO-8859-1";
+html {
+	background: #9adde4;
+	font-family: georgia;
+}
+
+body {
+	background: #FFF;
+	width: 700px;
+	margin: 0 auto 0 auto;
+	padding: 10px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}

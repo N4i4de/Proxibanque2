@@ -14,7 +14,9 @@ public class GestionConseiller implements InterfaceGestionConseiller {
 		if (conseiller.getPassword().equals(password)) {
 			return conseiller;
 		} else {
-			return null;
+			conseiller.setIdconseiller(0);
+			
+			return conseiller;
 		}
 	}
 

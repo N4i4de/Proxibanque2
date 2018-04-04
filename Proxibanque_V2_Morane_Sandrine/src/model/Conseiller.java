@@ -2,6 +2,11 @@ package model;
 
 import java.util.List;
 
+/**
+ * objet métier conseiller (javabean)
+ * @author Sandrine
+ *
+ */
 public class Conseiller {
 	private String  nom;
 	private String login;

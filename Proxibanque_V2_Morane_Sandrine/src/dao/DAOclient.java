@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import model.Client;
 import model.Compte;
 
 /**
+ * realise le lien entre la couche java et la couche BDD
  * @author Morane
  *
  */
@@ -36,6 +36,17 @@ public class DAOclient extends DaoJdbc implements InterfaceDAOClient {
 			pstm.setString(7, client.getCodePostal());
 			pstm.setString(8, client.getEmail());
 			pstm.executeUpdate();
+			
+//			while (rs.next()) {
+//              numerocompte = rs.getInt("numerocompte");
+//              solde = rs.getDouble("solde");
+//              typepe = rs.getString("typepe");
+//              datecreation = rs.getString("datecreation");
+//              idclient = rs.getInt("idclient");
+//              typece = rs.getString("typece");
+//
+//              compte = new Compte(numeroCompte, solde)
+//      }
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -94,37 +105,37 @@ public class DAOclient extends DaoJdbc implements InterfaceDAOClient {
 	}
 
 	@Override
-	public void upDateClientByid(int idclient, Client clientModifie) {
+    public void upDateClientByid(int idclient, Client clientModifie) {
 
-		Connection cnx = null;
-		PreparedStatement pstm = null;
-		ResultSet rs = null;
-		String nom = "";
-		String prenom = "";
-		String adresse = "";
-		String email = "";
-		try {
-			cnx = seConnecter();
-			String s = "update client set nom =? and prenom=? and adresse = ? and email=?  where idclient = ?";
-			pstm = cnx.prepareStatement(s);
-			pstm.setString(1, nom);
-			pstm.setString(2, prenom);
-			pstm.setString(3, adresse);
-			pstm.setString(4, email);
-			pstm.setInt(5, idclient);
-			pstm.executeUpdate();
+        Connection cnx = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        String nom = clientModifie.getNom();
+        String prenom = clientModifie.getPrenom();
+        String adresse = clientModifie.getAdresse();
+        String email = clientModifie.getEmail();
+        try {
+            cnx = seConnecter();
+            String s = "update client set nom =?, prenom=?,adresse = ? , email=?  where idclient = ?";
+            pstm = cnx.prepareStatement(s);
+            pstm.setString(1, nom);
+            pstm.setString(2, prenom);
+            pstm.setString(3, adresse);
+            pstm.setString(4, email);
+            pstm.setInt(5, idclient);
+            pstm.executeUpdate();
 
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			close(cnx, pstm, rs);
-		}
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            close(cnx, pstm, rs);
+        }
 
-	}
+    }
 
 	@Override
 	public List<Client> getAllclient() {

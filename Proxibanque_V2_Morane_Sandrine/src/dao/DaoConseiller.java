@@ -8,6 +8,12 @@ import java.sql.SQLException;
 import model.Client;
 import model.Conseiller;
 
+/**
+ * realise les actions de CRUD dans la base de données mysql
+ * @author Sandrine
+ * 
+ *
+ */
 public class DaoConseiller extends DaoJdbc implements InterfaceDaoConseiller {
 
 	@Override

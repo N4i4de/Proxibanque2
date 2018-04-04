@@ -1,0 +1,18 @@
+@charset "ISO-8859-1";
+
+html {
+	background: #9adde4;
+	font-family: georgia;
+}
+
+body {
+	background: #FFF;
+	width: 700px;
+	margin: 0 auto 0 auto;
+	padding: 10px;
+}
+
+h1{
+	color:red;
+	text-align: center;
+}

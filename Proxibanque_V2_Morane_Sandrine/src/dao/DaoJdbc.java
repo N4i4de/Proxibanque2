@@ -6,14 +6,25 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * connexion et deconnexion à la BDD mysql
+ * @author Morane
+ *
+ */
 public abstract class DaoJdbc {
 	private static String login = "root";
 	private static String password = "";
 
+	/**
+	 * connexion à la BDD mySQL
+	 * @return connection
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public Connection seConnecter() throws ClassNotFoundException, SQLException {
 		Connection cnx = null;
 		Class.forName("com.mysql.jdbc.Driver");
-		cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/proxibanque_morane_sandrine", "root", "");
+		cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/proxibanque2_morane_sandrine", "root", "");
 		return cnx;
 	}
 

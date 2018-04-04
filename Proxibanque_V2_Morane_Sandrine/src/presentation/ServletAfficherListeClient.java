@@ -18,6 +18,7 @@ import service.InterfaceGestionClient;
 import service.InterfaceGestionConseiller;
 
 /**
+ * Affichage de la liste des client d'un conseiller
  * Servlet implementation class ServletAfficherListeClient
  */
 @WebServlet("/ServletAfficherListeClient")
@@ -37,7 +38,7 @@ public class ServletAfficherListeClient extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -51,6 +52,7 @@ public class ServletAfficherListeClient extends HttpServlet {
 		List<Client> listclient=gestionclient.listerClient(conseiller.getIdconseiller());
         request.setAttribute("listclient", listclient);
         RequestDispatcher dispatcher;
+        System.out.println("passage par la servlet affi li");
         dispatcher=request.getRequestDispatcher("listeClients.jsp");
         dispatcher.forward(request, response);
 		//doGet(request, response);

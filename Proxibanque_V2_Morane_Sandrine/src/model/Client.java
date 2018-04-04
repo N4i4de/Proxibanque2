@@ -3,6 +3,7 @@ package model;
 import java.util.List;
 
 /**
+ * objet client (java bean)
  * @author Sandrine
  *
  */
