@@ -10,6 +10,11 @@ import java.util.List;
 import model.Client;
 import model.Compte;
 
+
+/**
+ * @author Morane
+ *
+ */
 public class DAOclient extends DaoJdbc implements InterfaceDAOClient {
 
 	@Override
