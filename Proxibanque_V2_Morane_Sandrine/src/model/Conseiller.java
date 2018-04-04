@@ -9,8 +9,12 @@ public class Conseiller {
 	private int idconseiller;
 	private List<Client> listClient;
 	
+	
+	
+	public Conseiller() {
+	}
+
 	public Conseiller(String nom, String login, String password, int idconseiller) {
-		super();
 		this.nom = nom;
 		this.login = login;
 		this.password = password;
